@@ -1,0 +1,21 @@
+/* src/app/iphone-list/iphone-list.component.css */
+.iphone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.iphone-card {
+  border: 1px solid #cccccc;
+  padding: 15px;
+  /*border-radius: 8px;*/
+  background-color: #e0dfe3;
+  /*box-shadow: 0 2px 4px rgba(0,0,0,0.1);*/
+}
+
+.iphone-card img {
+  max-width: 100%;
+  height: 150px;
+
+}
+

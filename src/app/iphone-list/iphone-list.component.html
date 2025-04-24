@@ -1,0 +1,15 @@
+<h2> Nasze Iphony:</h2>
+
+<div class="iphone-grid">
+
+  <div class="iphone-card" *ngFor="let iphone of iphones">
+
+    <img [src]="iphone.imageUrl" [alt]="iphone.name">
+    <p>{{ iphone.name }}</p>
+    <p>{{ iphone.description }}</p>
+    <p>{{ iphone.price }}</p>
+    <button>Dodaj do koszyka</button>
+
+  </div>
+
+</div>

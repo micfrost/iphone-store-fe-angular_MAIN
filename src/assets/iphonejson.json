@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 16 Pro",
+    "description": "Najnowszy i najpotężniejszy iPhone z dynamiczną wyspą.",
+    "price": 1299,
+    "imageUrl": "assets/images/iphone16pro.jpg"
+  },
+  {
+    "id": 2,
+    "name": "iPhone 16 Plus",
+    "description": "Świetny wybór z ulepszonym aparatem i dłuższą baterią.",
+    "price": 1099,
+    "imageUrl": "assets/images/iphone16plus.jpg"
+  },
+  {
+    "id": 3,
+    "name": "iPhone 16",
+    "description": "Moc  Bionic w klasycznej obudowie.",
+    "price": 899,
+    "imageUrl": "assets/images/iphone16.jpg"
+  }
+]
