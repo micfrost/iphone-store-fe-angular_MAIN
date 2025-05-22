@@ -4,14 +4,18 @@
   display: flex; /* Włącza Flexbox dla tego kontenera */
   /* Opcjonalnie: Ustaw minimalną wysokość, aby stopka była na dole,
      trzeba dostosować wartość np. odejmując wysokość headera i footera */
-  /* min-height: calc(100vh - wysokość_headera - wysokość_footera); */
+   /*min-height: calc(100vh - wysokość_headera - wysokość_footera);*/
+
 }
 
+
+
 app-sidebar {
-  width: 160px; /* Ustaw stałą szerokość dla paska bocznego */
+  width: 200px; /* Ustaw stałą szerokość dla paska bocznego */
   flex-shrink: 0; /* Zapobiega kurczeniu się paska, gdy brakuje miejsca */
-  background-color: #e0dfe3; /* Przykładowy kolor tła dla paska */
+  background-color: #f3f3f3; /* Przykładowy kolor tła dla paska */
   padding: 15px; /* Przykładowy wewnętrzny margines */
+  border-radius: 20px;
 }
 
 main {
@@ -22,6 +26,6 @@ main {
 
 /* Opcjonalnie: Możesz dodać style dla app-header i app-footer */
 app-header, app-footer {
-  /*background-color: #e0e0e0;*/
-  padding: 10px 15px;
+  padding: 10px;
+
 }

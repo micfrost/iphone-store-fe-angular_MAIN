@@ -17,7 +17,7 @@ export class IphoneListComponent implements OnInit {
   private iphonesUrl = 'assets/iphonejson.json';
 
   // wstrzykuje
-  constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -25,16 +25,51 @@ export class IphoneListComponent implements OnInit {
     this.getIphones();
   }
 
-  getIphones(): void {
-    this.http.get<Iphone[]>(this.iphonesUrl).pipe(
-      catchError(error => {
-        console.error('Błąd podczas ładowania produktów:', error);
-        return [];
-      })
-    ).subscribe(data => {
-      this.iphones = data;
-      console.log('Iphony załadowane:', this.iphones);
-    });
+
+  // METHODA - Z PIPE
+  getIphonesPipe(): void { // 1. Definicja metody
+    // Http methoda get
+    // 2. Wyślij żądanie HTTP GET, otrzymasz tablice Iphonow, wysij pod URL iphonow)
+    this.httpClient.get<Iphone[]>(this.iphonesUrl)
+
+      // error handling
+      .pipe( // 3. Użyj operatorów RxJS
+        catchError(error => { // 4. Złap potencjalny błąd
+          console.error('Błąd podczas ładowania produktów:', error); // 5. Zapisz błąd w konsoli
+          return []; // 6. Zwróć pustą tablicę w razie błędu (INTENCJA)
+        })
+      )
+
+// subskrybuj
+      .subscribe(data => { // 7. Zasubskrybuj, aby otrzymać dane (lub fallback)
+        this.iphones = data; // 8. Przypisz otrzymane dane do właściwości komponentu
+        console.log('Iphony załadowane:', this.iphones); // 9. Zapisz wynik w konsoli
+      });
   }
 
+  // METHODA - PROSTSZA - BEZ PIPE
+  getIphones(): void {
+
+    this.httpClient.get<Iphone[]>(this.iphonesUrl)
+
+      .subscribe({ // Przekazujemy JEDEN obiekt
+
+        next: (data) => {
+          // Kod dla sukcesu
+          this.iphones = data;
+          console.log('Iphony załadowane:', this.iphones);
+        },
+
+        error: (error) => {
+          // Kod dla błędu
+          console.error('Błąd podczas ładowania produktów:', error);
+          this.iphones = [];
+          console.log('Wystąpił błąd, ustawiono pustą tablicę iPhonów.');
+        },
+
+        // complete: () => { /* Opcjonalny kod po zakończeniu */ }
+      });
+  }
 }
+
+
